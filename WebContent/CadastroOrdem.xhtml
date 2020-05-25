@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>Cadastro</title>
+</h:head>
+
+<h:body>
+<h:form>
+<p:commandLink value="Menu" action="menu.xhtml" immediate="true" />
+<h1>Cadastro</h1>
+<p:growl />
+<p:panelGrid  columns="2"  >
+
+<h:outputText value="Cliente:*" />
+<p:selectOneMenu value="#{ordemControllerPedro.clienteSelecionado}"
+converter="clienteConverter"
+required="true"
+requiredMessage="campo obrigatorio">
+<f:selectItem  itemLabel="Selecione"/>
+<f:selectItems  value="#{clienteControllerPedro.lista}"
+var="cliente"
+itemLabel="#{cliente.nome}"
+itemValue="#{cliente}" />
+</p:selectOneMenu>
+
+<h:outputText value="Servico:*" />
+<p:selectOneMenu value="#{ordemControllerPedro.servicoSelecionado}"
+converter="servicoConverter"
+required="true"
+requiredMessage="campo obrigatorio">
+<f:selectItem  itemLabel="Selecione"/>
+<f:selectItems  value="#{servicoControllerPedro.lista}"
+var="servico"
+itemLabel="#{servico.nome}"
+itemValue="#{servico}" />
+</p:selectOneMenu>
+
+<h:outputText value="Quantidade de Serviço: *" />
+<p:inputText value="#{ordemControllerPedro.ordem.quantidade}" 
+required="true"
+requiredMessage="O campo quantidade de servico é obrigatorio!"  />
+
+<h:outputText value="Valor: *" />
+<p:inputText value="#{ordemControllerPedro.ordem.valorUnitario}" 
+required="true"
+requiredMessage="O campo valor unitario é obrigatorio!"  />
+
+<h:outputText value="Valor Desconto: *" />
+<p:inputText value="#{ordemControllerPedro.ordem.valorDesconto}" 
+required="true"
+requiredMessage="O campo valor desconto é obrigatorio!"  />
+
+<p:commandButton value="Salvar" 
+action="#{ordemControllerPedro.salvar}" ajax="false" />
+<p:commandButton  value="Limpar" action="CadastroOrdem.xhtml" actionListener="#{ordemControllerPedro.limparCampo}" immediate="true"/>
+
+</p:panelGrid>
+</h:form>
+</h:body>
+
+</html>

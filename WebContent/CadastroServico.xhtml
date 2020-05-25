@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>Cadastro Serviço</title>
+</h:head>
+<h:body>
+<h:form>
+<p:commandLink value="Menu" action="Menu.xhtml" immediate="true" />
+<h1>Servico</h1>
+<p:growl />
+
+<p:panelGrid columns="2" >
+
+<h:outputText value="Nome: *" />
+<p:inputText value="#{servicoControllerPedro.servico.nome}" 
+required="true"
+requiredMessage="O campo nome é obrigatorio!"  />
+
+<h:outputText value="Descrição: *" />
+<p:inputText value="#{servicoControllerPedro.servico.descricao}" 
+required="true"
+requiredMessage="O campo descrição é obrigatorio!"  />
+
+<p:commandButton value="Salvar" 
+action="#{servicoControllerPedro.salvar}" ajax="false" />
+<p:commandButton  value="Limpar" action="CadastroServico.xhtml" actionListener="#{servicoControllerPedro.limparCampo}" immediate="true"/>
+
+</p:panelGrid>
+</h:form>
+</h:body>
+</html>

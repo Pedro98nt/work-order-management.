@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+	<title>Lista ordem de Servico</title>
+	</h:head>
+<h:body>
+<h:form>
+<p:commandLink value="Menu" action="Menu.xhtml" immediate="true" />> |
+<h1>lista de ordem de serviço</h1>
+
+<p:dataTable value="#{ordemControllerPedro.listar}" var="ordem" 
+border="1" id="ordem" paginator="true" rows="5" 
+emptyMessage="Nenhuma ordem cadastrada!"  >
+
+<p:column headerText="Id">
+<h:outputText value="#{ordem.id}" />
+</p:column>
+
+<p:column headerText="cliente">
+<h:outputText value="#{ordem.cliente.nome}" />
+</p:column>
+
+<p:column headerText="serviço">
+<h:outputText value="#{ordem.serviço.nome}" />
+</p:column>
+
+<p:column headerText="Quantidade Serviço">
+<h:outputText value="#{ordem.quantidade}" />
+</p:column>
+
+<p:column headerText="Valor Unitario">
+<h:outputText value="#{ordem.valorUnitario}" />
+</p:column>
+
+<p:column headerText="Valor Desconto">
+<h:outputText value="#{ordem.valorDesconto}" />
+</p:column>
+
+<p:column headerText="Valor Total">
+<h:outputText value="#{ordem.valorTotal}" />
+</p:column>
+
+</p:dataTable>
+
+
+</h:form>
+</h:body>
+</html>
